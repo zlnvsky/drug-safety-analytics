@@ -1,0 +1,20 @@
+## Data Decisions
+
+**Age imputation**: ~161k records (40%) have missing age values.
+Decision: kept as NaN to avoid assumptions.
+These records are excluded from age-based and demographic analysis only.
+
+**Weight**: ~60k records (17%) have weight data available.
+Excluded from main analysis due to high missingness (83%).
+Available for supplementary weight-based analysis.
+
+**Date anomalies**: 65 records where mfr_dt > fda_dt dropped as data entry errors.
+
+
+Переименование колонок — чтобы дальше работать с нормальными именами
+Дроп ненужных колонок — убрать мусор сразу
+Типизация — привести к правильным типам (datetime, int, float)
+Новые колонки — age_years, wt_kg, age_grp (зависят от правильных типов)
+Выбросы — дропать после того как типы правильные
+Пропуски — заполнить UNK или оставить NaN
+Дубликаты — в конце, когда данные уже чистые
