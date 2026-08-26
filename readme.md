@@ -56,6 +56,7 @@ https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html
 
 ## 📁 Project Structure
 
+```
 drug-safety-analytics/
 ├── src/
 │   ├── clean_demo.py
@@ -71,6 +72,7 @@ drug-safety-analytics/
 ├── README.md
 ├── PROJECT_PLAN.md
 └── requirements.txt
+```
 
 ---
 
