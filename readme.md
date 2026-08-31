@@ -36,9 +36,9 @@ events efficiently.
 * Which drug combinations are the most dangerous?
 * Which adverse reactions are most common for specific drug classes?
 * Are there age or gender groups at higher risk of serious outcomes?
-* Which routes of administration or dose forms are associated 
-with the highest number of adverse events?
+* Which routes of administration or dose forms are associated with the highest number of adverse events?
 
+---
 
 ## 🧱 Data Source
 
@@ -54,9 +54,11 @@ https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html
 * PyCharm
 * Git / GitHub
 * Power BI (dashboarding)
+* Claude (AI pair programming assistant)
 
 ---
 
+## 📁 Project Structure
 ## 📁 Project Structure
 
 ```
@@ -66,6 +68,7 @@ drug-safety-analytics/
 │   ├── clean_drug.py
 │   ├── clean_reac.py
 │   ├── clean_outc.py
+│   ├── clean_indi.py
 │   ├── utils.py
 │   └── config.py
 ├── notebooks/
@@ -76,7 +79,6 @@ drug-safety-analytics/
 ├── PROJECT_PLAN.md
 └── requirements.txt
 ```
-
 ---
 
 ## 🚧 Status
@@ -84,15 +86,8 @@ drug-safety-analytics/
 * ✅ Sprint 0 — Project Planning
 * ✅ Sprint 1 — Data Cleaning: DEMO
 * ✅ Sprint 2 — Data Cleaning: DRUG
-* 🔄 Sprint 3 — Data Cleaning: REAC, OUTC
-* ⏳ Sprint 4 — Analysis & Business Questions
+* ✅ Sprint 3 — Data Cleaning: REAC, OUTC, INDI
+* 🔄 Sprint 4 — Analysis & Business Questions
 * ⏳ Sprint 5 — Dashboard (Power BI)
-
----
-
-## ⚠️ Known Limitations
-
-**drug_seq recalculated**: original drug_seq was replaced for analysis purposes.
-Join with THER table is not supported in current version.
 
 ---
