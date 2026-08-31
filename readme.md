@@ -4,15 +4,18 @@
 
 This project simulates a real-world pharmacovigilance analytics system built on FDA FAERS adverse event data.
 
-The goal is to analyze drug safety signals, identify high-risk medications, and support decision-making in pharmaceutical safety monitoring.
+The goal is to analyze drug safety signals, identify high-risk medications, and support decision-making in 
+pharmaceutical safety monitoring.
 
 ---
 
 ## 🎯 Business Problem
 
-Pharmaceutical companies receive a large volume of adverse event reports every quarter. Manual analysis of these reports is slow and may delay the detection of critical safety issues.
+Pharmaceutical companies receive a large volume of adverse event reports every quarter. Manual analysis of these 
+reports is slow and may delay the detection of critical safety issues.
 
-This project aims to build an end-to-end analytics pipeline that helps prioritize and analyze adverse drug events efficiently.
+This project aims to build an end-to-end analytics pipeline that helps prioritize and analyze adverse drug 
+events efficiently.
 
 ---
 
@@ -84,3 +87,12 @@ drug-safety-analytics/
 * 🔄 Sprint 3 — Data Cleaning: REAC, OUTC
 * ⏳ Sprint 4 — Analysis & Business Questions
 * ⏳ Sprint 5 — Dashboard (Power BI)
+
+---
+
+## ⚠️ Known Limitations
+
+**drug_seq recalculated**: original drug_seq was replaced for analysis purposes.
+Join with THER table is not supported in current version.
+
+---

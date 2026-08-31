@@ -15,6 +15,20 @@ def rename_columns(df):
     )
     return df
 
+def normalize_str_values(df):
+    """
+    Normalize string values: uppercase, strip, remove special characters.
+    """
+    df = df.copy()
+    str_cols = df.select_dtypes(['str', 'object']).columns
+    df[str_cols] = df[str_cols].apply(lambda x: x.str.upper().str.strip())
+    df[str_cols] = df[str_cols].apply(lambda x: x
+        .str.replace('.', '', regex=False)
+        .str.replace('-', ' ', regex=False)
+        .str.strip()
+        .str.replace(r'\s+', ' ', regex=True))
+    return df
+
 
 def standardize_unknown(df):
     """
@@ -23,6 +37,9 @@ def standardize_unknown(df):
     df = df.copy()
     str_cols = df.select_dtypes(['str', 'object']).columns
     df[str_cols] = df[str_cols].replace(UNKNOWN_VALUES, 'UNK')
+    df[str_cols] = df[str_cols].apply(
+        lambda x: x.str.replace(r'.*UNKNOWN.*', 'UNK', regex=True)
+    )
     return df
 
 

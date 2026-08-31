@@ -1,69 +1,108 @@
 # Project Plan — Drug Safety Analytics Platform
 
-## Sprint 0 — Project Planning
+## ✅ Sprint 0 — Project Planning
 
 ### Goal
-
-Analyze adverse event reports to identify and prioritize high-risk drug safety signals for further investigation.
-
-[//]: # (Define business problem, dataset, architecture and analytics strategy.)
+Define business problem, dataset, architecture and analytics strategy.
 
 ---
 
 ## Business Problem
 
-Pharmaceutical companies receive thousands of adverse event reports 
-from healthcare professionals, patients, and manufacturers. 
-Due to the large volume of reports, it is difficult to identify which safety signals 
+Pharmaceutical companies receive thousands of adverse event reports
+from healthcare professionals, patients, and manufacturers.
+Due to the large volume of reports, it is difficult to identify which safety signals
 require immediate investigation and which patient groups are at the highest risk.
 
-The objective of this project is to analyze adverse event reports, 
-identify high-risk drugs, patient groups, and safety patterns, 
-and provide data-driven insights to support pharmacovigilance decision-making 
+The objective of this project is to analyze adverse event reports,
+identify high-risk drugs, patient groups, and safety patterns,
+and provide data-driven insights to support pharmacovigilance decision-making
 and safety monitoring.
-
-[//]: # (Analyze adverse event reports to identify and prioritize high-risk drug safety signals for further investigation.)
-
-[//]: # (Analyze adverse drug events to identify high-risk drugs, patient groups, and safety patterns.&#41; old)
-
 
 ---
 
 ## Business Questions
 
-(To be finalized, current draft)
-
 * Which drugs are associated with the highest number of serious adverse events?
-* Which patient demographics show higher risk of severe outcomes?
-* Are serious adverse event reports increasing over time for specific drugs?
-* Which drug-reaction combinations are most frequently associated with serious outcomes?
-
-[//]: # (* How do adverse events vary over time?)
-[//]: # (* Which drug-reaction combinations are most critical?)
-[//]: # (* Are there patterns indicating increased risk due to drug interactions?)
+* Which drugs are most frequently linked to death outcomes?
+* Which drug combinations are the most dangerous?
+* Which adverse reactions are most common for specific drug classes?
+* Are there age or gender groups at higher risk of serious outcomes?
+* Which routes of administration or dose forms are associated with the highest number of adverse events?
 
 ---
 
-## Primary Business Metric (Draft)
+## Primary Business Metric
 
 Serious Adverse Event Rate per Drug:
 
-* proportion of serious outcomes (death, hospitalization, life-threatening events)
-* grouped by drug and manufacturer
+* Proportion of serious outcomes (death, hospitalization, life-threatening events)
+* Grouped by drug and manufacturer
 
 ---
 
 ## Data Source
 
-FDA FAERS dataset
+FDA Adverse Event Reporting System (FAERS)
+https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html
 
 ---
 
-## Next Steps
+## ✅ Sprint 1 — Data Cleaning: DEMO
 
-Sprint 1:
+### Goal
+Clean and standardize the DEMO table for analysis.
 
-* Download FAERS data
-* Understand schema (DEMO, DRUG, REAC, OUTC)
-* Build initial data model
-* Load into Python environment
+### Completed
+* Standardized column names
+* Selected relevant columns
+* Converted date columns to datetime format
+* Created age_days, age_years, age_grp features
+* Standardized weight to kg
+* Removed date anomalies
+* Removed age and weight outliers
+* Standardized country columns
+* Handled missing values
+* Converted categorical columns
+
+---
+
+## ✅ Sprint 2 — Data Cleaning: DRUG
+
+### Goal
+Clean and standardize the DRUG table for analysis.
+
+### Completed
+* Standardized column names
+* Selected relevant columns
+* Normalized drugname and prod_ai columns
+* Removed duplicates
+* Removed UNK route duplicates
+* Created is_primary feature
+* Recalculated drug_seq and drugs_per_case
+* Converted categorical columns
+
+---
+
+## 🔄 Sprint 3 — Data Cleaning: REAC, OUTC
+
+### Goal
+Clean and standardize REAC and OUTC tables for analysis.
+
+### Next Steps
+* Clean REAC table
+* Clean OUTC table
+
+---
+
+## ⏳ Sprint 4 — Analysis & Business Questions
+
+### Goal
+Answer 6 business questions using cleaned data.
+
+---
+
+## ⏳ Sprint 5 — Dashboard (Power BI)
+
+### Goal
+Build interactive dashboard for pharmacovigilance insights.

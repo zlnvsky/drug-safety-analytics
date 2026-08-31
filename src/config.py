@@ -46,3 +46,5 @@ UNKNOWN_VALUES = ['UNKNOWN', 'UNKNWON', 'NOT SPECIFIED', 'NOT REPORTED',
                   'N/A', 'NA', 'NONE', 'NR', '-', '', ' ']
 
 MAX_UNIQUE_CAT = 200
+
+OUTC_ORDER = ['OT', 'RI', 'CA', 'DS', 'HO', 'LT', 'DE']

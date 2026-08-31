@@ -123,8 +123,8 @@ def recalculate_drug_seq(df):
     df = df.copy()
     df = df.sort_values(['primaryid', 'role_cod'], ascending=[True, False])
     df = df.reset_index(drop=True)
-    df['drug_seq'] = df.groupby('primaryid').cumcount() + 1
-    df['drugs_per_case'] = df.groupby('primaryid')['drug_seq'].transform('max')
+    df['drug_seq_cleaned'] = df.groupby('primaryid').cumcount() + 1
+    df['drugs_per_case'] = df.groupby('primaryid')['drug_seq_cleaned'].transform('max')
     return df
 
 # ============================================================
