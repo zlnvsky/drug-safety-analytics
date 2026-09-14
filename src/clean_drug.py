@@ -1,6 +1,6 @@
 import pandas as pd
 from src.config import UNKNOWN_VALUES, MAX_UNIQUE_CAT
-from src.utils import rename_columns, standardize_unknown, fill_str_nulls, convert_str_to_cat, drop_duplicates
+from src.utils import rename_columns, standardize_unknown, fill_str_nulls, convert_str_to_cat, drop_duplicates, normalize_str_values
 
 # ============================================================
 # 1. RENAME COLUMNS — see utils.py
@@ -138,8 +138,9 @@ def clean_drug(df):
     df = rename_columns(df)
     df = select_columns(df)
     df = normalize_drug_names(df)
-    df = standardize_unknown(df)
+    df = normalize_str_values(df)
     df = fill_str_nulls(df)
+    df = standardize_unknown(df)
     df = create_is_primary(df)
     df = drop_drug_duplicates(df)
     df = drop_unk_route_duplicates(df)

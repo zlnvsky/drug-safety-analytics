@@ -22,12 +22,12 @@ AGE_MULTIPLIERS_YEARS = {
 
 AGE_GROUP_BINS = [0, 28, 730, 4383, 6575, 23725, float('inf')]
 AGE_GROUP_LABELS = [
-    'Neonate',
-    'Infant',
-    'Child',
-    'Adolescent',
-    'Adult',
-    'Elderly'
+    'NEONATE',
+    'INFANT',
+    'CHILD',
+    'ADOLESCENT',
+    'ADULT',
+    'ELDERLY'
 ]
 
 WEIGHT_MULTIPLIERS = {
@@ -48,3 +48,20 @@ UNKNOWN_VALUES = ['UNKNOWN', 'UNKNWON', 'NOT SPECIFIED', 'NOT REPORTED',
 MAX_UNIQUE_CAT = 200
 
 OUTC_ORDER = ['OT', 'RI', 'CA', 'DS', 'HO', 'LT', 'DE']
+OUTCOME_ORDER = ['OTHER SERIOUS',
+                 'REQUIRED INTERVENTION',
+                 'CONGENITAL ANOMALY',
+                 'DISABILITY',
+                 'HOSPITALIZATION',
+                 'LIFE THREATENING',
+                 'DEATH'
+]
+OUT_LABELS = {
+    'DE' : 'Death',
+    'LT' : 'Life-Threatening',
+    'HO' : 'Hospitalization',
+    'DS' : 'Disability',
+    'CA' : 'Congenital Anomaly',
+    'RI' : 'Required Intervention',
+    'OT' : 'Other Serious'
+}

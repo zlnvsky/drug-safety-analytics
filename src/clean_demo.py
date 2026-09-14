@@ -17,7 +17,8 @@ from src.utils import (
     standardize_unknown,
     fill_str_nulls,
     convert_str_to_cat,
-    drop_duplicates)
+    drop_duplicates,
+    normalize_str_values)
 
 # ============================================================
 # 1. RENAME COLUMNS — see utils.py
@@ -192,6 +193,7 @@ def clean_invalid_countries(df):
 
 def clean_demo(df):
     df = rename_columns(df)
+    df = normalize_str_values(df)
     df = select_columns(df)
     df = standardize_unknown(df)
     df = fill_str_nulls(df)

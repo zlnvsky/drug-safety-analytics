@@ -84,15 +84,16 @@ Clean and standardize the DRUG table for analysis.
 
 ---
 
-## ✅ Sprint 3 — Data Cleaning: REAC, OUTC, INDI
+## ✅ Sprint 3 — Data Cleaning: REAC, OUTC, INDI, ATC
 
 ### Goal
-Clean and standardize REAC, OUTC and INDI tables for analysis.
+Clean and standardize REAC, OUTC, INDI and ATC reference tables for analysis.
 
 ### Completed
 * Cleaned REAC table (reactions, drug_rec_act)
 * Cleaned OUTC table (outcomes with ordered categorical)
 * Cleaned INDI table (drug indications)
+* Cleaned ATC classification reference table (WHO)
 * Added normalize_str_values() to shared utils
 * Added OUTC_ORDER constant to config
 

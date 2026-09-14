@@ -47,6 +47,23 @@ https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html
 
 ---
 
+## 📥 Data Setup
+
+1. Download FAERS quarterly data from the link above
+2. Extract the ASCII files
+3. Place them in the `data/` folder:
+
+```
+data/
+├── DEMO24Q2.txt
+├── DRUG24Q2.txt
+├── REAC24Q2.txt
+├── OUTC24Q2.txt
+└── INDI24Q2.txt
+```
+
+---
+
 ## 🛠️ Tech Stack
 
 * Python (pandas, numpy)
@@ -58,7 +75,6 @@ https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html
 
 ---
 
-## 📁 Project Structure
 ## 📁 Project Structure
 
 ```
@@ -86,8 +102,16 @@ drug-safety-analytics/
 * ✅ Sprint 0 — Project Planning
 * ✅ Sprint 1 — Data Cleaning: DEMO
 * ✅ Sprint 2 — Data Cleaning: DRUG
-* ✅ Sprint 3 — Data Cleaning: REAC, OUTC, INDI
+* ✅ Sprint 3 — Data Cleaning: REAC, OUTC, INDI, ATC
 * 🔄 Sprint 4 — Analysis & Business Questions
 * ⏳ Sprint 5 — Dashboard (Power BI)
 
 ---
+
+## ⚠️ Known Limitations
+
+**ATC classification coverage**: Drug-to-ATC-class mapping achieves ~99.95% coverage
+using RxNav API (by prod_ai and drugname) combined with DrugCentral INN names and
+salt-suffix normalization. The WHO ATC/DDD index (see `clean_atc.py`) was evaluated
+as an additional source but added negligible coverage (7 of 674 remaining unmatched
+entries) and was not included in the final pipeline.

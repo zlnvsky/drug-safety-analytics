@@ -1,5 +1,5 @@
 import pandas as pd
-from src.config import UNKNOWN_VALUES, MAX_UNIQUE_VALUES
+from src.config import UNKNOWN_VALUES, MAX_UNIQUE_CAT
 
 def rename_columns(df):
     """
@@ -60,7 +60,7 @@ def convert_str_to_cat(df):
     df = df.copy()
     str_cols = df.select_dtypes(['str', 'object']).columns
     for col in str_cols:
-        if df[col].nunique() <= MAX_UNIQUE_VALUES:
+        if df[col].nunique() <= MAX_UNIQUE_CAT:
             df[col] = df[col].astype('category')
     return df
 
