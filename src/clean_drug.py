@@ -1,6 +1,6 @@
 import pandas as pd
 from src.config import UNKNOWN_VALUES, MAX_UNIQUE_CAT
-from src.utils import rename_columns, standardize_unknown, fill_str_nulls, convert_str_to_cat, drop_duplicates, normalize_str_values
+from src.utils import rename_columns, standardize_unknown, fill_str_nulls, convert_str_to_cat, drop_duplicates, normalize_str_values, create_prod_ai_clean
 
 # ============================================================
 # 1. RENAME COLUMNS — see utils.py
@@ -56,7 +56,7 @@ def select_columns_final(df):
     """
     df = df.copy()
     df = df[['primaryid', 'caseid',
-             'drug_seq', 'role_cod', 'drugname', 'prod_ai',
+             'drug_seq', 'role_cod', 'drugname', 'prod_ai', 'prod_ai_clean',
              'route', 'dose_form', 'is_primary', 'drugs_per_case']]
     return df
 
@@ -147,6 +147,7 @@ def clean_drug(df):
     df = convert_role_cod(df)
     df = convert_str_to_cat(df)
     df = recalculate_drug_seq(df)
+    df = create_prod_ai_clean(df)
     df = select_columns_final(df)
     df = drop_duplicates(df)
     return df

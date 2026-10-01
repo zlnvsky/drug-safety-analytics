@@ -40,6 +40,27 @@ events efficiently.
 
 ---
 
+## 🔬 Advanced Analysis: Disproportionality Signal Detection
+
+In addition to simple frequency counts, this project applies the 
+Proportional Reporting Ratio (PRR) — a standard pharmacovigilance 
+signal detection method used by regulators (FDA, EMA) — to identify 
+adverse reactions that occur disproportionately often for a specific 
+drug class, rather than reactions that are simply common overall.
+
+**Method**: For each (drug class, reaction) pair, PRR compares the 
+proportion of cases with that reaction within the class against the 
+proportion of cases with that reaction among all other classes. 
+A continuity correction (+0.5) is applied to avoid division by zero 
+when a reaction is unique to one class.
+
+**Output**: A separate table (drug_class, reaction, n_cases, 
+total_cases, PRR) intended for export to the BI dashboard, where 
+a minimum class-size filter can be applied interactively to balance 
+signal strength against statistical reliability.
+
+---
+
 ## 🧱 Data Source
 
 FDA Adverse Event Reporting System (FAERS)
@@ -115,3 +136,22 @@ using RxNav API (by prod_ai and drugname) combined with DrugCentral INN names an
 salt-suffix normalization. The WHO ATC/DDD index (see `clean_atc.py`) was evaluated
 as an additional source but added negligible coverage (7 of 674 remaining unmatched
 entries) and was not included in the final pipeline.
+
+**Causality vs correlation for death outcomes**: FAERS captures temporal 
+association between drug use and adverse events, not confirmed causality. 
+This is especially relevant for oncology drugs (e.g. TAGRISSO, VENCLEXTA, 
+TECENTRIQ) where death may reflect disease progression rather than drug 
+toxicity, since these drugs treat severe, often terminal conditions.
+
+**Salt suffix normalization**: A curated list of common salt/hydrate suffixes 
+(e.g. HYDROCHLORIDE, SODIUM, MESYLATE) is stripped from prod_ai to consolidate 
+different salt forms of the same active ingredient (e.g. LENVATINIB vs 
+LENVATINIB MESYLATE) under prod_ai_clean. This list is not exhaustive — rarer 
+salt forms not covered by the list remain as distinct entries, slightly 
+understating consolidation but not introducing false matches.
+
+**drug_seq recalculated**: The DRUG table's drug_seq is recalculated after 
+deduplication to number Primary Suspect (PS) drugs first within each case, 
+so it no longer matches the original FAERS drug_seq used to join against 
+the THER (therapy dates) file. The original sequence is preserved separately 
+if a THER join is needed in future work.

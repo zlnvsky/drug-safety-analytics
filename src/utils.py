@@ -1,5 +1,5 @@
 import pandas as pd
-from src.config import UNKNOWN_VALUES, MAX_UNIQUE_CAT
+from src.config import UNKNOWN_VALUES, MAX_UNIQUE_CAT, SALT_SUFFIXES
 
 def rename_columns(df):
     """
@@ -71,3 +71,22 @@ def drop_duplicates(df):
     """
     df = df.copy()
     return df.drop_duplicates()
+
+
+def strip_salt_suffix(name):
+    """
+    Remove a trailing salt/hydrate suffix from a drug name, if present.
+    """
+    for suffix in SALT_SUFFIXES:
+        if name.endswith(suffix):
+            return name[:-len(suffix)].strip()
+    return name
+
+def create_prod_ai_clean(df):
+    """
+    Create prod_ai_clean column with salt/hydrate suffixes stripped,
+    for consistent drug identification across combined entries.
+    """
+    df = df.copy()
+    df['prod_ai_clean'] = df['prod_ai'].apply(strip_salt_suffix)
+    return df

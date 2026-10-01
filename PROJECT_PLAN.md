@@ -104,10 +104,15 @@ Clean and standardize REAC, OUTC, INDI and ATC reference tables for analysis.
 ### Goal
 Answer 6 business questions using cleaned data.
 
+### Completed
+* Q1: Top drugs and ATC classes by serious adverse events (solo and multi-drug cases)
+* Q2: Top drugs and ATC classes by death outcomes (solo and multi-drug cases)
+* Q3: Most frequent multi-drug combinations (salt-normalized via prod_ai_clean)
+* Q4: Top reactions per ATC class (simple frequency)
+* Implemented PRR-based signal detection for drug class → reaction analysis
 ### Next Steps
-* Join tables by primaryid
-* Answer each business question
-* Document findings
+* Q5: Age/gender risk groups for serious outcomes
+* Q6: Route/dose form vs adverse event frequency
 
 ---
 
